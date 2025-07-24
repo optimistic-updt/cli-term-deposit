@@ -22,6 +22,7 @@ npx tdc --principal 10000 --rate 5 --term 36 --paid monthly
 ### non-fonctionnal
 
 - project is will not be used as a library
+- the naming chosen within the project is considering that the project is self-contained and not part of a bigger codebase
 - project setup is done for a minimal setup, not a full blown development environment
 
 ## Contribute
