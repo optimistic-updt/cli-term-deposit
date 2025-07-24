@@ -9,7 +9,7 @@ A CLI utility for calculating term deposits.
 To calculate the final balance of a principal of $10,000, at a annual interest rat of 3%, re-invested monthly for 3 years (36 months)
 
 ```bash
-npx tdc --principal 10000 --rate 5 --term 36 --paid monthly
+npm run start
 ```
 
 ## Assumptions
