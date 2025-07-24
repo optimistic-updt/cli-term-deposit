@@ -1,7 +1,7 @@
 import { calculateTermDeposit } from "./term-deposit-calculator";
 
 const PRINCIPAL = 100000;
-const INTEREST_RATE = 1.1;
+const INTEREST_RATE = 0.011;
 const TERM_IN_MONTHS = 36; // 3 years
 
 describe("[calculateTermDeposit] interest payment occurence", () => {

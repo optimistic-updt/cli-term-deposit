@@ -1,4 +1,4 @@
-import { calculateAtMaturityInterest } from "./maturity";
+import { calculateAtMaturityInterest } from "./simple-interest-formula";
 
 describe("calculateAtMaturityInterest", () => {
   it("matures at 12 months", () => {
