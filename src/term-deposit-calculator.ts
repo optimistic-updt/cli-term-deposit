@@ -4,8 +4,6 @@ export function calculateTermDeposit(
   termInMonths: number,
   paid: string,
 ) {
-  // take a series of argument
-
   // choose the right calculation method
 
   // output result
