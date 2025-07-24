@@ -1,35 +1,34 @@
 import { calculateCompoundInterest } from "./interest-formulas/compound-interest-formula";
 import { calculateAtMaturityInterest } from "./interest-formulas/simple-interest-formula";
-
-export const INTEREST_PAID_FREQUENCY = {
-  monthly: "monthly",
-  quarterly: "quarterly",
-  annually: "annually",
-  maturity: "maturity",
-} as const;
-export type InterestPaidFrequency = keyof typeof INTEREST_PAID_FREQUENCY;
+import {
+  INTEREST_PAYMENT_FREQUENCIES,
+  INTEREST_PAYMENT_FREQUENCY,
+  InterestPaymentFrequency,
+} from "./interest-types";
 
 export function calculateTermDeposit(
   principal: number,
   annualRate: number,
   termInMonths: number,
-  interestPaidFrequency: InterestPaidFrequency,
+  interestPaymentFrequency: InterestPaymentFrequency,
 ) {
-  if (!Object.values(INTEREST_PAID_FREQUENCY).includes(interestPaidFrequency)) {
-    // TODO
-    throw new Error(`Please Provide a valid interest payment frequency`);
+  if (!INTEREST_PAYMENT_FREQUENCIES.includes(interestPaymentFrequency)) {
+    throw new Error(`
+      Please Provide a valid interest payment frequency
+      choose from: ${INTEREST_PAYMENT_FREQUENCIES.join(", ")}
+    `);
   }
 
   let result: number;
 
-  if (interestPaidFrequency === INTEREST_PAID_FREQUENCY.maturity) {
+  if (interestPaymentFrequency === INTEREST_PAYMENT_FREQUENCY.maturity) {
     result = calculateAtMaturityInterest(principal, annualRate, termInMonths);
   } else {
     result = calculateCompoundInterest(
       principal,
       annualRate,
       termInMonths,
-      interestPaidFrequency,
+      interestPaymentFrequency,
     );
   }
 

@@ -1,28 +1,29 @@
 import {
-  INTEREST_PAID_FREQUENCY,
-  InterestPaidFrequency,
-} from "../term-deposit-calculator";
+  INTEREST_PAYMENT_FREQUENCY,
+  InterestPaymentFrequency,
+} from "../interest-types";
 
-type MonthlyCompoundingFrequency = Omit<InterestPaidFrequency, "maturity">;
+type MonthlyCompoundingFrequency = Omit<InterestPaymentFrequency, "maturity">;
 
 const getMonthlyCompoundingFrequency = (
   interestPaidFrequency: MonthlyCompoundingFrequency,
 ) => {
   const MONTHLY_COMPOUNDING_FREQ = {
-    [INTEREST_PAID_FREQUENCY.annually]: 1 / 12,
-    [INTEREST_PAID_FREQUENCY.quarterly]: 1 / 3,
-    [INTEREST_PAID_FREQUENCY.monthly]: 1,
+    [INTEREST_PAYMENT_FREQUENCY.annually]: 1 / 12,
+    [INTEREST_PAYMENT_FREQUENCY.quarterly]: 1 / 3,
+    [INTEREST_PAYMENT_FREQUENCY.monthly]: 1,
   } as const;
 
-  // TODO come back to TS error
-  return MONTHLY_COMPOUNDING_FREQ[interestPaidFrequency];
+  return MONTHLY_COMPOUNDING_FREQ[
+    interestPaidFrequency as keyof typeof MONTHLY_COMPOUNDING_FREQ
+  ];
 };
 
 export function calculateCompoundInterest(
   principal: number,
   annualRate: number,
   termInMonths: number,
-  interestPaidFrequency: InterestPaidFrequency,
+  interestPaidFrequency: InterestPaymentFrequency,
 ) {
   let monthlyCompoundingFrequency = getMonthlyCompoundingFrequency(
     interestPaidFrequency,
