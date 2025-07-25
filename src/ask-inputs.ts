@@ -17,16 +17,16 @@ type Inputs = {
 };
 
 export async function askUserInputs(): Promise<Inputs> {
-  const principal = await rl.question(
+  let principal = await rl.question(
     "\nWhat is the principal amount? (10000, 2500000, ...) ",
   );
-  const sanitizedPrincipal = parseFloat(principal);
+  let sanitizedPrincipal = parseFloat(principal);
 
   if (isNaN(sanitizedPrincipal)) {
     throw new Error("Invalid format. Please just use numbers. (i.e. 1000)");
   }
 
-  const rate = await rl.question(
+  let rate = await rl.question(
     "\nWhat is the annual interest rate in %? (example: 1.1, 3.2) ",
   );
 
@@ -39,17 +39,17 @@ export async function askUserInputs(): Promise<Inputs> {
     sanitizedRate = sanitizedRate / 100;
   }
 
-  const termInMonths = await rl.question(
+  let termInMonths = await rl.question(
     "\nWhat is the investment term in months? (12, 32, ....) ",
   );
 
-  const sanitizedTermInMonths = parseFloat(termInMonths);
+  let sanitizedTermInMonths = parseFloat(termInMonths);
 
   if (isNaN(sanitizedTermInMonths)) {
     throw new Error("Invalid format. example: 12, 32");
   }
 
-  const paid = await rl.question(
+  let paid = await rl.question(
     "\nShould the interest be paid monthly, quarterly, annually or at maturity? ",
   );
 
@@ -61,7 +61,7 @@ export async function askUserInputs(): Promise<Inputs> {
     );
   }
 
-  const sanitizedPaid = paid as InterestPaymentFrequency;
+  let sanitizedPaid = paid as InterestPaymentFrequency;
 
   rl.close();
 
