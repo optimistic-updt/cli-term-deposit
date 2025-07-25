@@ -2,7 +2,7 @@
 
 A CLI utility for calculating term deposits.
 
-[screenshot of the tool](https://github.com/optimistic-updt/cli-term-deposit/blob/main/cli-start@2x.png)
+![screenshot of the tool](./cli-start@2x.png)
 
 ## Usage
 
@@ -124,9 +124,10 @@ I did go for a more functionnal programming approach instead of a OOP because th
 
 Quick whiteboard thoughts
 
+![excalidraw whiteboard](./whiteboard@2x.png)
 [link to excalidraw](https://link.excalidraw.com/readonly/Mh0WMyNouyjSVmPhGntu)
 
 ## Further Work
 
-[ ] Output as a table of accrued interest
-[ ] enable term in years as arguments
+- [ ] Output as a table of accrued interest
+- [ ] enable term in years as arguments
