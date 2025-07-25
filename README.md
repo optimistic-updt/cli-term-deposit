@@ -2,7 +2,7 @@
 
 A CLI utility for calculating term deposits.
 
-[screenshot of the tool](./cli-start@2x.png)
+[screenshot of the tool](https://github.com/optimistic-updt/cli-term-deposit/blob/main/cli-start@2x.png)
 
 ## Usage
 
